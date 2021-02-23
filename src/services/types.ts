@@ -77,6 +77,7 @@ export type BaseStatsProps = {
 	HP: number,
 	hitDice: string,
 	speed: string[],
+    constitutionModifier: number
 }
 
 export type ErrorComponentProps = {
