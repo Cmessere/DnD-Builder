@@ -72,6 +72,13 @@ export type MonsterSheetHeaderProps = {
 	alignment: string,
 }
 
+export type BaseStatsProps = {
+    AC: number,
+	HP: number,
+	hitDice: string,
+	speed: string[],
+}
+
 export type ErrorComponentProps = {
     error: any
 }
@@ -101,7 +108,7 @@ export type MonsterSheet = {
 	armor_class: number,
 	hit_points: number,
 	hit_dice: string,
-	speed: string[],
+	speed: any,
 	strength: number,
 	dexterity: number,
 	constitution: number,
