@@ -19,3 +19,7 @@ export type MonsterCardProps = {
 export type MonsterGridProps = {
     monsters: Monster[]
 }
+
+export type PageList = {
+    currentPage: number
+}
