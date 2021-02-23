@@ -1,6 +1,7 @@
 import React from 'react';
 import { Monsters } from '../services/ApiClient';
 import { MonsterList } from '../services/types';
+import { Loading } from './Loading';
 
 export const Home = () => {
   const [monstersList, setMonstersList] = React.useState(undefined as any as MonsterList);
@@ -21,8 +22,6 @@ export const Home = () => {
     );
   }
   else {
-    return (
-      <h1>Loading</h1>
-    );
+    return <Loading />
   }
 };
