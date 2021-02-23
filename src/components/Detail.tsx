@@ -1,19 +1,33 @@
 import React from "react"
 import { useParams } from "react-router-dom"
 import { MonsterDetail } from "../services/ApiClient"
-import { DetailParams } from "../services/types"
+import { DetailParams, MonsterSheet } from "../services/types"
+import { ErrorComponent } from "./ErrorComponent"
+import { Loading } from "./Loading"
+import { MonsterSheetHeader } from "./MonsterSheetHeader"
 
 export const Detail = () => {
     const { id }:DetailParams = useParams()
-    const [monsterData, setMonsterData] = React.useState(undefined)
+    const [monsterData, setMonsterData] = React.useState(undefined as unknown as MonsterSheet)
+    const [error, setError] = React.useState(undefined)
 
     React.useEffect(() => {
         MonsterDetail(id)
-            .then(response => {console.log("Monster Data", response.data)})
-            .catch(error => {console.log("Error ", error)})
+            .then(response => setMonsterData(response.data))
+            .catch(error => setError(error))
     })
 
-    return(
-        <h1>{id}</h1>
-    )
+    if(error){
+        return <ErrorComponent error={error}/>
+    }
+    else if (monsterData){
+        return(
+            <div className="Monster-Sheet-page">
+                <MonsterSheetHeader name={monsterData.name} size={monsterData.name} type={monsterData.type} subtype={monsterData.subtype} alignment={monsterData.alignment} />
+            </div>
+        )
+    }
+    else{
+        return <Loading/>
+    }
 }
