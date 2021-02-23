@@ -6,3 +6,7 @@
 .monsters-row{
     display: flex;
 }
+
+.monster-list-item{
+    list-style-type:none;
+}
