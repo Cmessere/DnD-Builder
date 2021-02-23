@@ -3,6 +3,7 @@ import { Monsters } from '../services/ApiClient';
 import { MonsterList } from '../services/types';
 import { ErrorComponent } from './ErrorComponent';
 import { Loading } from './Loading';
+import MonsterCard from './MonsterCard';
 
 export const Home = () => {
     const [monstersList, setMonstersList] = React.useState(undefined as any as MonsterList);
@@ -22,7 +23,8 @@ export const Home = () => {
             <div className="home-page">
                 <h1>Monsters List</h1>
                 <h2>Total count: {monstersList.count}</h2>
-                {monstersList.results.map((monster) => <p>{monster.name}</p>)}
+                
+                {monstersList.results.map((monster) => <MonsterCard monster={monster}/>)}
             </div>
         );
     }

@@ -11,3 +11,7 @@ export type MonsterList = {
 export type ErrorComponentProps = {
     error: any
 }
+
+export type MonsterCardProps = {
+    monster: Monster
+}
