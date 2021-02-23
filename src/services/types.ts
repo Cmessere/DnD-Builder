@@ -23,3 +23,7 @@ export type MonsterGridProps = {
 export type PageList = {
     currentPage: number
 }
+
+export type DetailParams = {
+    id: string
+}

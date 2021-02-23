@@ -7,3 +7,8 @@ const client = axios.create({
 export const Monsters=() => {
     return client.get("monsters/")
 }
+
+export const MonsterDetail=(id:string) => {
+    return client.get("monsters/" + id)
+}
+
