@@ -1,6 +1,6 @@
 type Monster = {
     name: string,
-    url: string
+    index: string
 }
 
 export type MonsterList = {
