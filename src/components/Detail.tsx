@@ -13,9 +13,7 @@ export const Detail = () => {
 
     React.useEffect(() => {
         MonsterDetail(id)
-            .then(response => {
-                console.log("response ", response.data)
-                setMonsterData(response.data)})
+            .then(response => setMonsterData(response.data))
             .catch(error => setError(error))
     }, [])
 
@@ -38,7 +36,6 @@ export const Detail = () => {
 const BaseStats = ({AC, HP, hitDice, speed}: BaseStatsProps) => {
 
     const speedArray = Object.entries(speed)
-    console.log("speed array", speedArray)
     return(
         <div className="Monster-Sheet-BaseStats">
             <p><b>Armor Class</b> {AC}</p>
