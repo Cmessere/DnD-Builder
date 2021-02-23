@@ -7,3 +7,7 @@ export type MonsterList = {
     count: number,
     results: Monster[]
 }
+
+export type ErrorComponentProps = {
+    error: any
+}
