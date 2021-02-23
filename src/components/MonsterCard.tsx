@@ -1,16 +1,24 @@
 import Typography from '@material-ui/core/Typography';
-import { Card, CardActionArea, CardContent, makeStyles } from '@material-ui/core';
+import { Card, CardActionArea, makeStyles } from '@material-ui/core';
 import React from 'react';
 import { MonsterCardProps } from '../services/types';
 
 const useStyles = makeStyles({
   root: {
-    width: "20%",
-    height: "15%"
+    width: "20vw",
+    height: "10vh",
+    marginTop: "1vh",
+    marginBottom: "1vh",
+    marginLeft: "0.75vw",
+    marginRight: "0.75vw"
   },
   media: {
-    height: "100%",
+    width: "100%",
+    height: "100%"
   },
+  content: {
+    margin: "auto"
+  }
 });
 
 export default function MonsterCard({monster}: MonsterCardProps) {
@@ -18,12 +26,10 @@ export default function MonsterCard({monster}: MonsterCardProps) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h3">
+      <CardActionArea className={classes.media}>
+          <Typography className={classes.content} variant="h6">
             {monster.name}
           </Typography>
-        </CardContent>
       </CardActionArea>
     </Card>
   );

@@ -15,3 +15,7 @@ export type ErrorComponentProps = {
 export type MonsterCardProps = {
     monster: Monster
 }
+
+export type MonsterGridProps = {
+    monsters: Monster[]
+}
