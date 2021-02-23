@@ -1,10 +1,9 @@
 import React from 'react';
 import { Monsters } from '../services/ApiClient';
-import { MonsterGridProps, MonsterList, PageList } from '../services/types';
+import { MonsterList, PageList } from '../services/types';
 import { ErrorComponent } from './ErrorComponent';
 import { Loading } from './Loading';
-import MonsterCard from './MonsterCard';
-import "./styles/Home.css" 
+import { MonsterGrid } from './MonsterGrid';
 
 function reducer(state: any, action:any){
     switch (action.type) {
@@ -33,7 +32,7 @@ export const Home = () => {
         Monsters()
             .then((response) => setMonstersList(response.data))
             .catch(error => setError(error));
-    }, page.currentPage);
+    }, [page.currentPage]);
 
     if(error){
         return <ErrorComponent error={error}/>
@@ -55,25 +54,3 @@ export const Home = () => {
         return <Loading />
     }
 };
-
-const MonsterGrid = ({monsters}: MonsterGridProps) => {
-    return(
-        <div className="monsters-list-div">
-            <div className="monsters-row">
-                {monsters.slice(0, 5).map((monster) => <MonsterCard monster={monster} />)}
-            </div>
-            <div className="monsters-row">
-                {monsters.slice(5, 10).map((monster) => <MonsterCard monster={monster} />)}
-            </div>
-            <div className="monsters-row">
-                {monsters.slice(10, 15).map((monster) => <MonsterCard monster={monster} />)}
-            </div>
-            <div className="monsters-row">
-                {monsters.slice(15, 20).map((monster) => <MonsterCard monster={monster} />)}
-            </div>
-            <div className="monsters-row">
-                {monsters.slice(20, 25).map((monster) => <MonsterCard monster={monster} />)}
-            </div>
-        </div>   
-    )
-}

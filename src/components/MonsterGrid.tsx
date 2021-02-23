@@ -1,0 +1,26 @@
+import React from 'react';
+import { MonsterGridProps } from '../services/types';
+import MonsterCard from './MonsterCard';
+import "./styles/MonsterGrid.css" 
+
+export const MonsterGrid = ({ monsters }: MonsterGridProps) => {
+    return (
+        <div className="monsters-list-div">
+            <div className="monsters-row">
+                {monsters.slice(0, 5).map((monster) => <MonsterCard monster={monster} />)}
+            </div>
+            <div className="monsters-row">
+                {monsters.slice(5, 10).map((monster) => <MonsterCard monster={monster} />)}
+            </div>
+            <div className="monsters-row">
+                {monsters.slice(10, 15).map((monster) => <MonsterCard monster={monster} />)}
+            </div>
+            <div className="monsters-row">
+                {monsters.slice(15, 20).map((monster) => <MonsterCard monster={monster} />)}
+            </div>
+            <div className="monsters-row">
+                {monsters.slice(20, 25).map((monster) => <MonsterCard monster={monster} />)}
+            </div>
+        </div>
+    );
+};
