@@ -1,7 +1,7 @@
 import React from "react"
 import { useParams } from "react-router-dom"
 import { MonsterDetail } from "../services/ApiClient"
-import { DetailParams, MonsterSheet } from "../services/types"
+import { AdditionalStatsProps, DamageComponentProps, DetailParams, MonsterSheet, ProficienciesComponentProps } from "../services/types"
 import { AbilityPoints } from "./AbilityPoints"
 import { BaseStats } from "./BaseStats"
 import { ErrorComponent } from "./ErrorComponent"
@@ -16,7 +16,8 @@ export const Detail = () => {
 
     React.useEffect(() => {
         MonsterDetail(id)
-            .then(response => setMonsterData(response.data))
+            .then(response => {setMonsterData(response.data)
+            console.log("data", response.data)})
             .catch(error => setError(error))
     }, [id])
 
@@ -30,6 +31,9 @@ export const Detail = () => {
                 <MonsterSheetHeader name={monsterData.name} size={monsterData.size} type={monsterData.type} subtype={monsterData.subtype} alignment={monsterData.alignment} />
                 <BaseStats AC={monsterData.armor_class} HP={monsterData.hit_points} hitDice={monsterData.hit_dice} speed={monsterData.speed} constitutionModifier={modifier}/>
                 <AbilityPoints str={monsterData.strength} dex={monsterData.dexterity} con={monsterData.constitution} int={monsterData.intelligence} wis={monsterData.wisdom} cha={monsterData.charisma}/>
+                <ProficienciesComponent proficiencies={monsterData.proficiencies} />
+                <DamageComponent immunities={monsterData.damage_vulnerabilities} resistances={monsterData.damage_resistances} vulnerabilities={monsterData.damage_immunities} />
+                <AdditionalStats senses={monsterData.senses} languages={monsterData.languages} cr={monsterData.challenge_rating} xp={monsterData.xp} />
             </div>
         )
     }
@@ -38,3 +42,19 @@ export const Detail = () => {
     }
 }
 
+const ProficienciesComponent = ({proficiencies}:ProficienciesComponentProps) => {
+    return(
+        <div></div>
+    )
+    
+}
+const DamageComponent = ({immunities, resistances, vulnerabilities}:DamageComponentProps) => {
+    return(
+        <div></div>
+    )
+}
+const AdditionalStats = ({senses, languages, cr, xp}:AdditionalStatsProps) => {
+    return(
+        <div></div>
+    )
+}

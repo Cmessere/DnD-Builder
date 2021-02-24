@@ -101,6 +101,24 @@ export type MonsterGridProps = {
     monsters: Monster[]
 }
 
+
+export type AdditionalStatsProps = {
+    senses: string[],
+	languages: string,
+	cr: number,
+	xp: number,
+}
+
+export type DamageComponentProps = {
+	vulnerabilities: string[],
+	resistances: string[],
+	immunities: string[],
+}
+
+export type ProficienciesComponentProps = {
+    proficiencies: ProficienciesBonus[]
+}
+
 export type PageList = {
     currentPage: number
 }
@@ -138,3 +156,4 @@ export type MonsterSheet = {
 	actions: Action[],
 	legendary_actions: Action[]
 }
+
