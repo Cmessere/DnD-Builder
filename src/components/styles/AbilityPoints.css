@@ -1,0 +1,18 @@
+.Abilities-div{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.Ability-Points{
+    display: flex;
+}
+
+.Abilities-title{
+    text-align: center;
+}
+.Abilities-paragraph{
+    margin: auto;
+    text-align: center;
+}

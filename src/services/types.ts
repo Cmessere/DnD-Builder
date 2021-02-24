@@ -72,6 +72,15 @@ export type MonsterSheetHeaderProps = {
 	alignment: string,
 }
 
+export type AbilityPointsProps = {
+    str: number,
+    dex: number,
+    con: number,
+    int: number,
+    wis: number,
+    cha: number,
+}
+
 export type BaseStatsProps = {
     AC: number,
 	HP: number,

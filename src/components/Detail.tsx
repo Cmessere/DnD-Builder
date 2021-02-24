@@ -2,10 +2,12 @@ import React from "react"
 import { useParams } from "react-router-dom"
 import { MonsterDetail } from "../services/ApiClient"
 import { DetailParams, MonsterSheet } from "../services/types"
+import { AbilityPoints } from "./AbilityPoints"
 import { BaseStats } from "./BaseStats"
 import { ErrorComponent } from "./ErrorComponent"
 import { Loading } from "./Loading"
 import { MonsterSheetHeader } from "./MonsterSheetHeader"
+
 
 export const Detail = () => {
     const { id }:DetailParams = useParams()
@@ -27,6 +29,7 @@ export const Detail = () => {
             <div className="Monster-Sheet-page">
                 <MonsterSheetHeader name={monsterData.name} size={monsterData.size} type={monsterData.type} subtype={monsterData.subtype} alignment={monsterData.alignment} />
                 <BaseStats AC={monsterData.armor_class} HP={monsterData.hit_points} hitDice={monsterData.hit_dice} speed={monsterData.speed} constitutionModifier={modifier}/>
+                <AbilityPoints str={monsterData.strength} dex={monsterData.dexterity} con={monsterData.constitution} int={monsterData.intelligence} wis={monsterData.wisdom} cha={monsterData.charisma}/>
             </div>
         )
     }
