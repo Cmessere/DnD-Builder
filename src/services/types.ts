@@ -16,7 +16,7 @@ type Usage = {
     min_value?: number
 }
 
-type ProficienciesBonus = {
+export type ProficienciesBonus = {
     value: number,
     proficiency: ProficiencyDTO
 }

@@ -1,13 +1,13 @@
 import React from "react"
 import { useParams } from "react-router-dom"
 import { MonsterDetail } from "../services/ApiClient"
-import { AdditionalStatsProps, DamageComponentProps, DetailParams, MonsterSheet, ProficienciesComponentProps } from "../services/types"
+import { AdditionalStatsProps, DamageComponentProps, DetailParams, MonsterSheet } from "../services/types"
 import { AbilityPoints } from "./AbilityPoints"
 import { BaseStats } from "./BaseStats"
 import { ErrorComponent } from "./ErrorComponent"
 import { Loading } from "./Loading"
 import { MonsterSheetHeader } from "./MonsterSheetHeader"
-
+import { ProficienciesComponent } from "./ProficienciesComponent"
 
 export const Detail = () => {
     const { id }:DetailParams = useParams()
@@ -42,12 +42,6 @@ export const Detail = () => {
     }
 }
 
-const ProficienciesComponent = ({proficiencies}:ProficienciesComponentProps) => {
-    return(
-        <div></div>
-    )
-    
-}
 const DamageComponent = ({immunities, resistances, vulnerabilities}:DamageComponentProps) => {
     return(
         <div></div>

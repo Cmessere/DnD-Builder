@@ -7,8 +7,8 @@ export const AbilityPoints = ({ str, dex, con, int, wis, cha }: AbilityPointsPro
     const abilities = [["STR", str], ["DEX", dex], ["CON", con], ["INT", int], ["WIS", wis], ["CHA", cha]];
 
     return (
-        <div className="Ability-Points">
-            {abilities.map(ability => <AbilityLabel label={ability[0]} value={ability[1]} />)}
+        <div className="Ability-Points" >
+            {abilities.map(ability => <div key={ability[0]}><AbilityLabel label={ability[0]} value={ability[1]} /></div>)}
         </div>
     );
 };
