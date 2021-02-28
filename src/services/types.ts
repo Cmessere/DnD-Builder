@@ -16,10 +16,6 @@ type Usage = {
     min_value?: number
 }
 
-export type ProficienciesBonus = {
-    value: number,
-    proficiency: ProficiencyDTO
-}
 
 type ProficiencyDTO = {
     index: string,
@@ -57,6 +53,16 @@ type DamageDTO = {
     index: string,
     name: string,
     url: string
+}
+
+export type ProficienciesBonus = {
+    value: number,
+    proficiency: ProficiencyDTO
+}
+
+export type DamageRenderComponentProps = {
+    label:string,
+    values: string[]
 }
 
 export type MonsterList = {

@@ -1,9 +1,10 @@
 import React from "react"
 import { useParams } from "react-router-dom"
 import { MonsterDetail } from "../services/ApiClient"
-import { AdditionalStatsProps, DamageComponentProps, DetailParams, MonsterSheet } from "../services/types"
+import { AdditionalStatsProps, DetailParams, MonsterSheet } from "../services/types"
 import { AbilityPoints } from "./AbilityPoints"
 import { BaseStats } from "./BaseStats"
+import { DamageComponent } from "./DamageComponent"
 import { ErrorComponent } from "./ErrorComponent"
 import { Loading } from "./Loading"
 import { MonsterSheetHeader } from "./MonsterSheetHeader"
@@ -32,7 +33,7 @@ export const Detail = () => {
                 <BaseStats AC={monsterData.armor_class} HP={monsterData.hit_points} hitDice={monsterData.hit_dice} speed={monsterData.speed} constitutionModifier={modifier}/>
                 <AbilityPoints str={monsterData.strength} dex={monsterData.dexterity} con={monsterData.constitution} int={monsterData.intelligence} wis={monsterData.wisdom} cha={monsterData.charisma}/>
                 <ProficienciesComponent proficiencies={monsterData.proficiencies} />
-                <DamageComponent immunities={monsterData.damage_vulnerabilities} resistances={monsterData.damage_resistances} vulnerabilities={monsterData.damage_immunities} />
+                <DamageComponent immunities={monsterData.damage_immunities} resistances={monsterData.damage_resistances} vulnerabilities={monsterData.damage_vulnerabilities} />
                 <AdditionalStats senses={monsterData.senses} languages={monsterData.languages} cr={monsterData.challenge_rating} xp={monsterData.xp} />
             </div>
         )
@@ -42,11 +43,6 @@ export const Detail = () => {
     }
 }
 
-const DamageComponent = ({immunities, resistances, vulnerabilities}:DamageComponentProps) => {
-    return(
-        <div></div>
-    )
-}
 const AdditionalStats = ({senses, languages, cr, xp}:AdditionalStatsProps) => {
     return(
         <div></div>
