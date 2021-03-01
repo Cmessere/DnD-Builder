@@ -37,6 +37,7 @@ type ProficiencyDTO = {
 export type Action = {
     name: string,
     desc: string,
+    attack_bonus?: number,
     options?: any,
     damage?: Damage[],
     dc?: DCType,
