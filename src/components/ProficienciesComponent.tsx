@@ -1,3 +1,4 @@
+import { StringRenderer } from "./StringRenderer";
 import { ProficienciesBonus, ProficienciesComponentProps } from "../services/types";
 import "./styles/ProficienciesComponent.css"
 
@@ -7,12 +8,8 @@ export const ProficienciesComponent = ({ proficiencies }: ProficienciesComponent
 
     return (
         <div>
-            <div className="ProficienciesComponent-div">
-                <p><b>Saving Throws: &nbsp;</b></p>{savingThrows.map(t => <p key={t}> {t} &nbsp;</p>)}
-            </div>
-            <div className="ProficienciesComponent-div">
-                <p><b>Skills: &nbsp;</b></p>{skills.map(s => <p key={s}> {s} &nbsp;</p>)}
-            </div>
+            {savingThrows.length > 0 && <StringRenderer label={"Saving Throws: "} values={savingThrows} />}
+            {skills.length > 0 && <StringRenderer label={"Skills: "} values={skills} />}
         </div>
     );
 };

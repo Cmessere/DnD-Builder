@@ -60,10 +60,6 @@ export type ProficienciesBonus = {
     proficiency: ProficiencyDTO
 }
 
-export type DamageRenderComponentProps = {
-    label:string,
-    values: string[]
-}
 export type StringRenderProps = {
     label:string,
     values: string[]

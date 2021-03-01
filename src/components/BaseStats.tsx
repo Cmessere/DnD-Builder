@@ -16,7 +16,7 @@ export const BaseStats = ({ AC, HP, hitDice, speed, constitutionModifier }: Base
         <div className="Monster-Sheet-BaseStats">
             <p><b>Armor Class</b> {AC}</p>
             <p><b>Hit Points</b> {HP} {hitDice} <button onClick={rollHitDice}>Randomize</button> {randomHP}</p>
-            <p><b>Speed</b> {speedArray.map(value => value[0] + " " + value[1] + ", ")}</p>
+            <p><b>Speed</b> {speedArray.map(value => value[0] + " " + value[1])}</p>
         </div>
     );
 };

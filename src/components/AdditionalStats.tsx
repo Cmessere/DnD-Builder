@@ -1,5 +1,6 @@
 import React from "react";
-import { AdditionalStatsProps, StringRenderProps } from "../services/types";
+import { AdditionalStatsProps } from "../services/types";
+import { StringRenderer } from "./StringRenderer";
 import "./styles/Detail.css"
 
 export const AdditionalStats = ({ senses, languages, cr, xp }: AdditionalStatsProps) => {
@@ -36,11 +37,3 @@ const prettifySenses = (senses: any[]) => {
 function capitalizaAndRemoveHyphen(label: string) {
     return label.split("_").map(s => capitalize(s)).join(" ");
 }
-
-const StringRenderer = ({ label, values }: StringRenderProps) => {
-    return (
-        <div className="string-div">
-            <p><b>{label} &nbsp;</b></p>{values.map(v => <p key={v}>{v} &nbsp;</p>)}
-        </div>
-    );
-};
