@@ -19,6 +19,7 @@ const useStyles = makeStyles({
   },
   media: {
     margin: "auto",
+    padding: "5px",
     width: "100%",
     height: "100%"
   },
