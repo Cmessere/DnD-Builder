@@ -10,6 +10,7 @@ import { ErrorComponent } from "./ErrorComponent"
 import { Loading } from "./Loading"
 import { MonsterSheetHeader } from "./MonsterSheetHeader"
 import { ProficienciesComponent } from "./ProficienciesComponent"
+import { SpecialAbilitiesComponent } from "./SpecialAbilitiesComponent"
 import "./styles/Detail.css"
 
 export const Detail = () => {
@@ -38,6 +39,7 @@ export const Detail = () => {
                 <ProficienciesComponent proficiencies={monsterData.proficiencies} />
                 <DamageComponent immunities={monsterData.damage_immunities} resistances={monsterData.damage_resistances} vulnerabilities={monsterData.damage_vulnerabilities} conditionsImmunity={monsterData.condition_immunities} />
                 <AdditionalStats senses={monsterData.senses} languages={monsterData.languages} cr={monsterData.challenge_rating} xp={monsterData.xp} />
+                {monsterData.special_abilities && <SpecialAbilitiesComponent abilities={monsterData.special_abilities} />}
             </div>
         )
     }
@@ -45,4 +47,3 @@ export const Detail = () => {
         return <Loading/>
     }
 }
-

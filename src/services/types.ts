@@ -3,10 +3,14 @@ type Monster = {
     index: string
 }
 
-type SpecialAbilities = {
+export type SpecialAbilities = {
     name: string,
     desc: string,
     usage?: Usage
+}
+
+export type SpecialAbilitiesProps = {
+    abilities: SpecialAbilities[]
 }
 
 type Usage = {
