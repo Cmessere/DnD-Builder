@@ -55,6 +55,12 @@ type DamageDTO = {
     url: string
 }
 
+export type conditions = {
+    index: string,
+    name: string,
+    url: string
+}
+
 export type ProficienciesBonus = {
     value: number,
     proficiency: ProficiencyDTO
@@ -119,6 +125,7 @@ export type DamageComponentProps = {
 	vulnerabilities: string[],
 	resistances: string[],
 	immunities: string[],
+    conditionsImmunity: conditions[]
 }
 
 export type ProficienciesComponentProps = {
@@ -153,7 +160,7 @@ export type MonsterSheet = {
 	damage_vulnerabilities: string[],
 	damage_resistances: string[],
 	damage_immunities: string[],
-	condition_immunities: string[],
+	condition_immunities: conditions[],
 	senses: any[],
 	languages: string,
 	challenge_rating: number,
