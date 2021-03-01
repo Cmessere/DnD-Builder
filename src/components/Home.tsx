@@ -1,4 +1,3 @@
-import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 import React from 'react';
 import { Monsters } from '../services/ApiClient';
