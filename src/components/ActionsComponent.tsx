@@ -47,7 +47,12 @@ const rollAction = (action: Action, setRolledValue: React.Dispatch<React.SetStat
 }
 
 const rollDamage = (times:number, dice:number, bonus:number):number => {
-    let count = bonus
+    let count
+    bonus
+        ? count = bonus
+        : count = 0
+
+    console.log("bonus", bonus)
     for(let i = 0; i < times; i++){
         count += Math.floor(Math.random() * dice) + 1
     }
