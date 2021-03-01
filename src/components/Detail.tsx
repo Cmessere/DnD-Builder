@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { MonsterDetail } from "../services/ApiClient"
 import { DetailParams, MonsterSheet } from "../services/types"
 import { AbilityPoints } from "./AbilityPoints"
-import { ActionsComponent } from "./ActionsComponent"
+import { ActionsComponent, LegendaryActionsComponent } from "./ActionsComponent"
 import { AdditionalStats } from "./AdditionalStats"
 import { BaseStats } from "./BaseStats"
 import { DamageComponent } from "./DamageComponent"
@@ -42,6 +42,7 @@ export const Detail = () => {
                 <AdditionalStats senses={monsterData.senses} languages={monsterData.languages} cr={monsterData.challenge_rating} xp={monsterData.xp} />
                 {monsterData.special_abilities && <SpecialAbilitiesComponent abilities={monsterData.special_abilities} />}
                 {monsterData.actions && <ActionsComponent actions={monsterData.actions} />}
+                {monsterData.legendary_actions && <LegendaryActionsComponent legendaryActions={monsterData.legendary_actions} />}
             </div>
         )
     }

@@ -9,6 +9,9 @@ export type SpecialAbilities = {
     usage?: Usage
 }
 
+export type LegendaryActionsComponentProps = {
+    legendaryActions: Action[]
+}
 export type ActionsComponentProps = {
     actions: Action[]
 }
