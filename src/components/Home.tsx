@@ -1,4 +1,6 @@
+import { makeStyles, Typography } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination';
+import { title } from 'process';
 import React from 'react';
 import { Monsters } from '../services/ApiClient';
 import { MonsterList } from '../services/types';
@@ -7,11 +9,20 @@ import { Loading } from './Loading';
 import { MonsterGrid } from './MonsterGrid';
 import "./styles/Home.css"
 
+const useStyles = makeStyles({
+    typography: {
+        display: "flex",
+        margin: "auto",
+        color: "#cb2d3e"
+    }
+  });
+
 export const Home = () => {
     const [monstersList, setMonstersList] = React.useState(undefined as any as MonsterList);
     const [error, setError] = React.useState(undefined)
     const [page, setPage] = React.useState(1)
     const itemsPerPage = 25
+    const classes = useStyles();
 
     React.useEffect(() => {
         Monsters()
@@ -29,8 +40,8 @@ export const Home = () => {
         return (
             <div className="home-page">
                 <div className="home-page-title-div">
-                    <h1 className="home-page-title">Monsters List</h1>
-                    <h3 className="home-page-title">Total count: {monstersList.count}</h3>
+                    <Typography className={classes.typography} variant="h2" gutterBottom>Monsters List</Typography>
+                    <Typography className={classes.typography} variant="h4" gutterBottom>Total count: {monstersList.count}</Typography>
                 </div>
                 <MonsterGrid monsters={monstersList.results.slice(lowerGridRange , upperGridRange)} />
                 <div className="pagination-div">

@@ -2,20 +2,11 @@
     display: flex;
     justify-content: center;
     margin: auto;
-    margin-top: 4vh;
+    margin-top: auto;
 }
 
 
 .home-page-title-div{
     display: flex;
     flex-direction: column;
-    color: #cb2d3e;
-    margin: auto;
-    margin-bottom: 5vh;
-}
-
-.home-page-title{
-    display: flex;
-    margin: auto;
-    color: #cb2d3e
 }
