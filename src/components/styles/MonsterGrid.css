@@ -5,6 +5,7 @@
 
 .monsters-row{
     display: flex;
+    margin: auto;
 }
 
 .monster-list-item{
