@@ -151,6 +151,9 @@ export type PageList = {
 export type DetailParams = {
     id: string
 }
+export type HomeParams = {
+    page: string
+}
 
 export type MonsterSheet = {
 	name: string,
