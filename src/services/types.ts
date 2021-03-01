@@ -9,6 +9,10 @@ export type SpecialAbilities = {
     usage?: Usage
 }
 
+export type ActionsComponentProps = {
+    actions: Action[]
+}
+
 export type SpecialAbilitiesProps = {
     abilities: SpecialAbilities[]
 }
@@ -27,7 +31,7 @@ type ProficiencyDTO = {
     url: string
 }
 
-type Action = {
+export type Action = {
     name: string,
     desc: string,
     options?: any,

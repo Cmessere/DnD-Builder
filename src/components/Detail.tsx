@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { MonsterDetail } from "../services/ApiClient"
 import { DetailParams, MonsterSheet } from "../services/types"
 import { AbilityPoints } from "./AbilityPoints"
+import { ActionsComponent } from "./ActionsComponent"
 import { AdditionalStats } from "./AdditionalStats"
 import { BaseStats } from "./BaseStats"
 import { DamageComponent } from "./DamageComponent"
@@ -40,6 +41,7 @@ export const Detail = () => {
                 <DamageComponent immunities={monsterData.damage_immunities} resistances={monsterData.damage_resistances} vulnerabilities={monsterData.damage_vulnerabilities} conditionsImmunity={monsterData.condition_immunities} />
                 <AdditionalStats senses={monsterData.senses} languages={monsterData.languages} cr={monsterData.challenge_rating} xp={monsterData.xp} />
                 {monsterData.special_abilities && <SpecialAbilitiesComponent abilities={monsterData.special_abilities} />}
+                {monsterData.actions && <ActionsComponent actions={monsterData.actions} />}
             </div>
         )
     }
