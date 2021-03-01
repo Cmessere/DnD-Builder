@@ -1,14 +1,16 @@
 import React from "react"
 import { useParams } from "react-router-dom"
 import { MonsterDetail } from "../services/ApiClient"
-import { AdditionalStatsProps, DetailParams, MonsterSheet } from "../services/types"
+import { DetailParams, MonsterSheet } from "../services/types"
 import { AbilityPoints } from "./AbilityPoints"
+import { AdditionalStats } from "./AdditionalStats"
 import { BaseStats } from "./BaseStats"
 import { DamageComponent } from "./DamageComponent"
 import { ErrorComponent } from "./ErrorComponent"
 import { Loading } from "./Loading"
 import { MonsterSheetHeader } from "./MonsterSheetHeader"
 import { ProficienciesComponent } from "./ProficienciesComponent"
+import "./styles/Detail.css"
 
 export const Detail = () => {
     const { id }:DetailParams = useParams()
@@ -18,7 +20,8 @@ export const Detail = () => {
     React.useEffect(() => {
         MonsterDetail(id)
             .then(response => {setMonsterData(response.data)
-            console.log("data", response.data)})
+            // console.log("data", response.data)
+            })
             .catch(error => setError(error))
     }, [id])
 
@@ -43,8 +46,3 @@ export const Detail = () => {
     }
 }
 
-const AdditionalStats = ({senses, languages, cr, xp}:AdditionalStatsProps) => {
-    return(
-        <div></div>
-    )
-}

@@ -64,6 +64,10 @@ export type DamageRenderComponentProps = {
     label:string,
     values: string[]
 }
+export type StringRenderProps = {
+    label:string,
+    values: string[]
+}
 
 export type MonsterList = {
     count: number,
@@ -154,7 +158,7 @@ export type MonsterSheet = {
 	damage_resistances: string[],
 	damage_immunities: string[],
 	condition_immunities: string[],
-	senses: string[],
+	senses: any[],
 	languages: string,
 	challenge_rating: number,
 	xp: number,
