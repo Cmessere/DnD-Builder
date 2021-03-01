@@ -38,5 +38,5 @@ export default function MonsterCard({monster}: MonsterCardProps) {
 }
 
 const navigateToDetail = (url:string, history:any) => {
-    history.push("detail/"+url)
+    history.push("monsters/detail/"+url)
 }
