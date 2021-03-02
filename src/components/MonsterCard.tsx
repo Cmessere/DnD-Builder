@@ -3,12 +3,18 @@ import { Card, CardActionArea, makeStyles } from '@material-ui/core';
 import React from 'react';
 import { MonsterCardProps } from '../services/types';
 import { useHistory } from 'react-router-dom';
+import { CardActions } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    width: "15vw",
-    height: "10vh",
-    border: "5px solid #ffffff",
+    display: "flex",
+    flexDirection: "column",
+    margin: "auto",
+    width: "200px",
+    height: "120px",
     background: "linear-gradient(to right , #cb2d3e, #ef473a )",
     color: "white",
     marginTop: "1vh",
@@ -20,13 +26,20 @@ const useStyles = makeStyles({
   media: {
     margin: "auto",
     padding: "5px",
-    width: "100%",
-    height: "100%"
+    fontSize: "0.5vw",
+    flexWrap: "wrap"
   },
   content: {
     textAlign: "center",
     fontWeight: "bolder",
-    margin: "auto"
+    position: "sticky",
+    top: 0,
+
+  },
+  button: {
+    margin: "auto",
+    marginTop: "auto",
+    height: "20px"
   }
 });
 
@@ -36,11 +49,16 @@ export default function MonsterCard({monster}: MonsterCardProps) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea className={classes.media} onClick={() => navigateToDetail(monster.index, history)}>
+      <CardActionArea className={classes.media}  onClick={() => navigateToDetail(monster.index, history)}>
           <Typography className={classes.content} variant="h6">
             {monster.name}
           </Typography>
       </CardActionArea>
+      <CardActions className={classes.button}>
+        <IconButton style={{color:"white"}} aria-label="Add-Monster" onClick={() => console.log(monster)}>
+          <FontAwesomeIcon icon={faPlusCircle} />
+        </IconButton>
+      </CardActions>
     </Card>
   );
 }
