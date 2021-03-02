@@ -4,6 +4,7 @@ import { AdditionalStatsProps } from "../services/types";
 import { Subtitle } from "../utilities/TypographyComponent";
 import { StringRenderer } from "./StringRenderer";
 import "./styles/Detail.css"
+import { Divider } from "./Divider";
 
 export const AdditionalStats = ({ senses, languages, cr, xp }: AdditionalStatsProps) => {
     const prettySenses = prettifySenses(senses);
@@ -24,6 +25,7 @@ export const AdditionalStats = ({ senses, languages, cr, xp }: AdditionalStatsPr
                     <Subtitle label={<>Proficiency Bonus &nbsp;</>}/><Typography variant="subtitle2">+{proficiencyBonus}</Typography>
                 </div>
             </div>
+            <Divider/>
         </div>
     );
 };

@@ -1,5 +1,7 @@
 import { Typography } from "@material-ui/core";
+import React from "react";
 import { MonsterSheetHeaderProps } from "../services/types";
+import { Divider } from "./Divider";
 
 export const MonsterSheetHeader = ({ name, size, type, subtype, alignment }: MonsterSheetHeaderProps) => {
     
@@ -16,6 +18,7 @@ export const MonsterSheetHeader = ({ name, size, type, subtype, alignment }: Mon
             <div className="Monster-sheet-description">
                 {generateParagraph()}
             </div>
+            <Divider/>
         </div>
     );
 };

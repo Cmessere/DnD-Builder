@@ -57,3 +57,4 @@ export const Detail = () => {
         return <Loading/>
     }
 }
+

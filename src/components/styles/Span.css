@@ -1,0 +1,23 @@
+#pointer {
+    display: inline-block;
+    font-size: 1pt;
+    width: 35rem;
+    height: 4em;
+    position: relative;
+    background: linear-gradient(to right, #cb2d3e, #ef473a);
+  }
+  #pointer:after {
+    content: "";
+    position: absolute;
+    border-left: 2.25em solid white;
+    border-top: 2em solid transparent;
+    border-bottom: 2em solid transparent;
+  }
+  #pointer:before {
+    content: "";
+    position: absolute;
+    right: -1.25em;
+    border-left: 1.25em solid gray;
+    border-top: 2em solid transparent;
+    border-bottom: 2em solid transparent;
+  }

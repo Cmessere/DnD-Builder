@@ -1,6 +1,7 @@
 import { Typography } from "@material-ui/core";
 import React from "react";
 import { AbilityPointsProps } from "../services/types";
+import { Divider } from "./Divider";
 import "./styles/AbilityPoints.css"
 
 export const AbilityPoints = ({ str, dex, con, int, wis, cha }: AbilityPointsProps) => {
@@ -8,9 +9,12 @@ export const AbilityPoints = ({ str, dex, con, int, wis, cha }: AbilityPointsPro
     const abilities = [["STR", str], ["DEX", dex], ["CON", con], ["INT", int], ["WIS", wis], ["CHA", cha]];
 
     return (
+        <>
         <div className="Ability-Points" >
             {abilities.map(ability => <div className="Ability-Points-div" key={ability[0]}><AbilityLabel label={ability[0]} value={ability[1]} /></div>)}
         </div>
+        <Divider/>
+        </>
     );
 };
 const AbilityLabel = ({ label, value }: any) => {

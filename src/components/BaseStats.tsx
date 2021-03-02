@@ -4,6 +4,7 @@ import { BaseStatsProps } from "../services/types";
 import { Subtitle } from "../utilities/TypographyComponent";
 import { IconButton } from "@material-ui/core";
 import CasinoIcon from '@material-ui/icons/Casino';
+import { Divider } from "./Divider";
 
 export const BaseStats = ({ AC, HP, hitDice, speed, constitutionModifier }: BaseStatsProps) => {
 
@@ -33,6 +34,7 @@ export const BaseStats = ({ AC, HP, hitDice, speed, constitutionModifier }: Base
                 <Subtitle label={< >Speed</ >} />
                 <Typography style={{ marginLeft: "1vw" }} variant="subtitle2">{speedArray.map(value => value[0] + " " + value[1])}</Typography>
             </div>
+            <Divider/>
         </div>
     );
 };

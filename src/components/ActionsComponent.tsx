@@ -6,13 +6,17 @@ import { Title } from "../utilities/TypographyComponent";
 import CasinoIcon from '@material-ui/icons/Casino';
 
 import "./styles/Detail.css"
+import { Divider } from "./Divider";
 
 export const ActionsComponent = ({ actions }: ActionsComponentProps) => {
     return (
+        <>
         <div className="Action-div">
             <Typography variant="h4" color="primary">Actions</Typography>
             {actions.map(a => <div key={a.name}><RenderActionComponent action={a} /></div>)}
         </div>
+        <Divider/>
+        </>
     );
 };
 
