@@ -8,3 +8,14 @@
     width: 40%;
     justify-content: space-between;
 }
+
+.Monster-Sheet-div{
+    display: flex;
+    align-items: center;
+    margin-top: -0.5vh;
+    margin-bottom: -0.5vh;
+}
+
+.Monster-Sheet-BaseStats{
+    margin-top: 1vh;
+}
