@@ -1,4 +1,4 @@
-type Monster = {
+export type Monster = {
     name: string,
     index: string
 }

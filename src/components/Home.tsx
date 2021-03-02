@@ -1,9 +1,11 @@
+import { TextField } from '@material-ui/core';
 import { makeStyles, Typography } from '@material-ui/core';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import Pagination from '@material-ui/lab/Pagination';
-import { title } from 'process';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Monsters } from '../services/ApiClient';
-import { MonsterList } from '../services/types';
+import { Monster, MonsterList } from '../services/types';
 import { ErrorComponent } from './ErrorComponent';
 import { Loading } from './Loading';
 import { MonsterGrid } from './MonsterGrid';
@@ -14,8 +16,12 @@ const useStyles = makeStyles({
         display: "flex",
         margin: "auto",
         color: "#cb2d3e"
+    },
+    option: {
+        color: "#cb2d3e"
     }
   });
+
 
 export const Home = () => {
     const [monstersList, setMonstersList] = React.useState(undefined as any as MonsterList);
@@ -23,6 +29,7 @@ export const Home = () => {
     const [page, setPage] = React.useState(1)
     const itemsPerPage = 25
     const classes = useStyles();
+    const history = useHistory()
 
     React.useEffect(() => {
         Monsters()
@@ -43,6 +50,15 @@ export const Home = () => {
                     <Typography className={classes.typography} variant="h2" gutterBottom>Monsters List</Typography>
                     <Typography className={classes.typography} variant="h4" gutterBottom>Total count: {monstersList.count}</Typography>
                 </div>
+                <Autocomplete
+                    id="monsters-box"
+                    options={monstersList.results}
+                    classes={{option: classes.option}}
+                    getOptionLabel={(option:Monster) => option.name}
+                    style={{ width: 300, justifyContent: "center", margin: "auto", marginTop: "1vh", marginBottom: "1vh", color:"#cb2d3e" }}
+                    renderInput={(params) => <TextField {...params} style={{color:"#cb2d3e"}} variant="outlined" />}
+                    onChange={(_event, option) => {navigateToSelection(option, history)}}
+                />
                 <MonsterGrid monsters={monstersList.results.slice(lowerGridRange , upperGridRange)} />
                 <div className="pagination-div">
                     <Pagination color="primary"
@@ -59,6 +75,10 @@ export const Home = () => {
     }
 };
 
-function handleChange(page:number, setPage:React.Dispatch<React.SetStateAction<number>>){
+const handleChange = (page:number, setPage:React.Dispatch<React.SetStateAction<number>>) =>{
     setPage(page)
+}
+
+const navigateToSelection = (option:any, history:any) =>{
+    history.push("/monsters/detail/"+option.index)
 }
