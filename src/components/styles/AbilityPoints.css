@@ -3,6 +3,8 @@
     flex-direction: column;
     margin-left: 1vw;
     margin-right: 1vw;
+    user-select: none;
+    outline:none
 }
 .Abilities-div:hover{
     cursor: pointer;
