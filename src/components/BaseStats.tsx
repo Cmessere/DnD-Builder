@@ -19,11 +19,11 @@ export const BaseStats = ({ AC, HP, hitDice, speed, constitutionModifier }: Base
     return (
         <div className="Monster-Sheet-BaseStats">
             <div className="Monster-Sheet-div">
-                <Subtitle label={<b>Armor Class</b>} />
+                <Subtitle label={< >Armor Class</ >} />
                 <Typography style={{ marginLeft: "1vw" }} variant="subtitle2">{AC}</Typography>
             </div>
             <div className="Monster-Sheet-div">
-                <Subtitle label={<b>Hit Points</b>} />
+                <Subtitle label={< >Hit Points</ >} />
                 <Typography style={{ marginLeft: "1vw" }} variant="subtitle2">{HP} {hitDice}</Typography>
                 <IconButton color="secondary" aria-label="roll-hit-dices" onClick={rollHitDice}>
                     <CasinoIcon />
@@ -31,7 +31,7 @@ export const BaseStats = ({ AC, HP, hitDice, speed, constitutionModifier }: Base
                 <Typography color="secondary" style={{ marginLeft: "1vw" }} variant="subtitle2"> {randomHP}</Typography>
             </div>
             <div className="Monster-Sheet-div">
-                <Subtitle label={<b>Speed</b>} />
+                <Subtitle label={< >Speed</ >} />
                 <Typography style={{ marginLeft: "1vw" }} variant="subtitle2">{speedArray.map(value => value[0] + " " + value[1])}</Typography>
             </div>
         </div>

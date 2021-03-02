@@ -7,7 +7,7 @@ export const ProficienciesComponent = ({ proficiencies }: ProficienciesComponent
     let { savingThrows, skills }: { savingThrows: string[]; skills: string[]; } = separateSavingThrowsFromSkills(proficiencies);
 
     return (
-        <div>
+        <div className="proficiencies-saves-div">
             {savingThrows.length > 0 && <StringRenderer label={"Saving Throws: "} values={savingThrows} />}
             {skills.length > 0 && <StringRenderer label={"Skills: "} values={skills} />}
         </div>

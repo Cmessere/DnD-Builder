@@ -1,5 +1,7 @@
 .string-div{
     display: flex;
+    align-items: baseline;
+
 }
 
 .two-column-div{
@@ -15,15 +17,20 @@
     margin-top: -0.5vh;
     margin-bottom: -0.5vh;
 }
+.proficiencies-saves-div{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
 
 .Monster-Sheet-BaseStats{
     margin-top: 1vh;
 }
 
 .Ability-Points-div{
-    margin: 0.5vh;
-    width: 6vw;
-    height: 7vh;
+    margin: 5px;
+    width: 80px;
+    height: 80px;
     border-width: 5px;
     border-style: solid;
     border-color: #cb2d3e;
