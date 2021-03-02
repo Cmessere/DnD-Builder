@@ -1,11 +1,16 @@
 import React from "react";
-import { Action, ActionsComponentProps, LegendaryActionsComponentProps } from "../services/types";
+import { IconButton } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import { Action, ActionsComponentProps, DamageRoll, LegendaryActionsComponentProps } from "../services/types";
+import { Title } from "../utilities/TypographyComponent";
+import CasinoIcon from '@material-ui/icons/Casino';
+
 import "./styles/Detail.css"
 
 export const ActionsComponent = ({ actions }: ActionsComponentProps) => {
     return (
-        <div>
-            <h2>Actions</h2>
+        <div className="Action-div">
+            <Typography variant="h4" color="primary">Actions</Typography>
             {actions.map(a => <div key={a.name}><RenderActionComponent action={a} /></div>)}
         </div>
     );
@@ -13,26 +18,34 @@ export const ActionsComponent = ({ actions }: ActionsComponentProps) => {
 
 export const LegendaryActionsComponent = ({ legendaryActions }: LegendaryActionsComponentProps) => {
     return (
-        <div>
-            <h2>Legendary Actions</h2>
+        <div className="Action-div">
+            <Typography variant="h4" color="primary">Legendary Actions</Typography>
             {legendaryActions.map(a => <div key={a.name}><RenderActionComponent action={a} /></div>)}
         </div>
     );
 };
 
-type DamageRoll = {
-    hit: number,
-    damage: string
-}
-
-const RenderActionComponent = ({action}:any) => {
+const RenderActionComponent = ({ action }: any) => {
     const [rolledValue, setRolledValue] = React.useState(undefined as unknown as DamageRoll)
 
     return (
-        <div className="string-div">
-            <p><b>{action.name}.</b> {action.desc}</p>
-            {action.attack_bonus && <button onClick={() => rollAction(action, setRolledValue)}>Roll Damage</button>}
-            {rolledValue && <p>{rolledValue.hit} to hit, {rolledValue.damage} </p>}
+        <div className="Action-string-div">
+            <div className="Action-description-div">
+                <div className="Action-inner-div">
+                    <Title label={<>{action.name}.</>} />
+                </div>
+                <div className="Action-inner-div">
+                    {action.attack_bonus !== undefined &&
+                        <IconButton color="secondary" aria-label="roll-hit-dices" onClick={() => rollAction(action, setRolledValue)}>
+                            <CasinoIcon />
+                        </IconButton>
+                    }
+                    {rolledValue && <Typography color="secondary" style={{ marginLeft: "1vw" }} variant="subtitle2">{rolledValue.hit} to hit, {rolledValue.damage} </Typography>}
+                </div>
+            </div>
+            <div>
+                <Typography variant="caption" >{action.desc}</Typography>
+            </div>
         </div>
     );
 };
@@ -43,34 +56,34 @@ const rollAction = (action: Action, setRolledValue: React.Dispatch<React.SetStat
     const [times, dice] = damageValues.damage_dice.split('d')
     const [parsedDice, modifier] = getModifierValue(dice)
     const damageRoll = rollDamage(parseInt(times), parsedDice, modifier).toString() + " " + damageValues.damage_type.name
-    setRolledValue({hit: hitRoll, damage: damageRoll })
+    setRolledValue({ hit: hitRoll, damage: damageRoll })
 }
 
-const getModifierValue = (value:string) =>{
+const getModifierValue = (value: string) => {
     let modifier
     let dice
 
-    if(value.includes("+")){
+    if (value.includes("+")) {
         [dice, modifier] = value.split("+")
     }
-    else if(value.includes("-")){
+    else if (value.includes("-")) {
         [dice, modifier] = value.split("-")
         modifier = -modifier
     }
-    else{
+    else {
         dice = value
     }
-    return [dice,modifier]
+    return [dice, modifier]
 }
 
-const rollDamage = (times:number, dice:any, bonus:any):number => {
+const rollDamage = (times: number, dice: any, bonus: any): number => {
     let count
     bonus
         ? count = parseInt(bonus)
         : count = 0
 
-    for(let i = 0; i < times; i++){
-        count +=  Math.floor(Math.random() * dice) + 1
+    for (let i = 0; i < times; i++) {
+        count += Math.floor(Math.random() * dice) + 1
     }
     return count
 }

@@ -15,7 +15,6 @@ export const BaseStats = ({ AC, HP, hitDice, speed, constitutionModifier }: Base
         const randomHP = calculateRandomHP(rollTimes, diceType, constitutionModifier);
         setRandomHP(randomHP);
     };
-
     return (
         <div className="Monster-Sheet-BaseStats">
             <div className="Monster-Sheet-div">

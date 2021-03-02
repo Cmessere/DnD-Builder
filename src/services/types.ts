@@ -20,6 +20,11 @@ export type SpecialAbilitiesProps = {
     abilities: SpecialAbilities[]
 }
 
+export type DamageRoll = {
+    hit: number,
+    damage: string
+}
+
 type Usage = {
     type: string,
     times?: number,

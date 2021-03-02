@@ -43,3 +43,17 @@
 .Abilities-div{
     margin: 10px;
 }
+.Action-div{
+    margin-top: 2vh;
+}
+
+.Action-description-div{
+    display: flex;
+    align-items: center;
+
+}
+
+.Action-inner-div{
+    display: flex;
+    align-items: center;
+}
