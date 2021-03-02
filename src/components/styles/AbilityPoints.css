@@ -8,8 +8,8 @@
 }
 .Abilities-div:hover{
     cursor: pointer;
+    width:80%;
     border-radius: 30%;
-
     background-color: rgba(203, 45, 62, 0.1);
 }
 
