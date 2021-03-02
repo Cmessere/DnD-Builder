@@ -21,9 +21,7 @@ export const Detail = () => {
 
     React.useEffect(() => {
         MonsterDetail(id)
-            .then(response => {setMonsterData(response.data)
-                console.log("response", response.data)
-            })
+            .then(response => setMonsterData(response.data))
             .catch(error => setError(error))
     }, [id])
 
