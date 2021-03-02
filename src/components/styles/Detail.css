@@ -19,3 +19,22 @@
 .Monster-Sheet-BaseStats{
     margin-top: 1vh;
 }
+
+.Ability-Points-div{
+    margin: 0.5vh;
+    width: 6vw;
+    height: 7vh;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #cb2d3e;
+    background-color: rgb(255, 255, 255);
+    color: #cb2d3e;
+    border-bottom-left-radius: 150% 75%;
+    border-bottom-right-radius: 150% 75%;
+    border-top-left-radius: 100% 15%;
+    border-top-right-radius: 100% 15%;
+}
+
+.Abilities-div{
+    margin: 10px;
+}

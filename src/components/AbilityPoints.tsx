@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import React from "react";
 import { AbilityPointsProps } from "../services/types";
 import "./styles/AbilityPoints.css"
@@ -8,7 +9,7 @@ export const AbilityPoints = ({ str, dex, con, int, wis, cha }: AbilityPointsPro
 
     return (
         <div className="Ability-Points" >
-            {abilities.map(ability => <div key={ability[0]}><AbilityLabel label={ability[0]} value={ability[1]} /></div>)}
+            {abilities.map(ability => <div className="Ability-Points-div" key={ability[0]}><AbilityLabel label={ability[0]} value={ability[1]} /></div>)}
         </div>
     );
 };
@@ -17,8 +18,9 @@ const AbilityLabel = ({ label, value }: any) => {
 
     return (
         <div className="Abilities-div">
-            <p className="Abilities-title"><b>{label}</b></p>
-            <p className="Abilities-paragraph">{value} ({modifier})</p>
+            <Typography variant="subtitle1" className="Abilities-title"><b>{label}</b></Typography>
+            {modifier > 0 &&  <Typography color="secondary" variant="caption" className="Abilities-paragraph">{value} (+{modifier})</Typography>}
+            {modifier <= 0 &&  <Typography color="secondary" variant="caption" className="Abilities-paragraph">{value} ({modifier})</Typography>}
         </div>
     );
 };
