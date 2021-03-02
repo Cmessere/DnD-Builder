@@ -4,6 +4,12 @@
     margin-left: 1vw;
     margin-right: 1vw;
 }
+.Abilities-div:hover{
+    cursor: pointer;
+    border-radius: 30%;
+
+    background-color: rgba(203, 45, 62, 0.1);
+}
 
 .Ability-Points{
     display: flex;
