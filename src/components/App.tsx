@@ -10,7 +10,7 @@ function App() {
         <div >
             <ThemeProvider theme={theme}>
             <Switch>
-                <Route exact path="/monsters"><Home /></Route>
+                <Route exact path="/"><Home /></Route>
                 <Route path="/monsters/detail/:id"><Detail /></Route>
             </Switch>
             </ThemeProvider>
