@@ -3,7 +3,8 @@ import { IconButton } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { Action, ActionsComponentProps, Critical, DamageRoll, LegendaryActionsComponentProps } from "../services/types";
 import { Title } from "../utilities/TypographyComponent";
-import CasinoIcon from '@material-ui/icons/Casino';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 
 import "./styles/Detail.css"
 import { Divider } from "./Divider";
@@ -42,7 +43,7 @@ const RenderActionComponent = ({ action }: any) => {
                 <div className="Action-inner-div">
                     {action.attack_bonus !== undefined &&
                         <IconButton color="secondary" aria-label="roll-hit-dices" onClick={() => rollAction(action, setRolledValue, setCriticalType)}>
-                            <CasinoIcon />
+                            <FontAwesomeIcon icon={faDiceD20} />
                         </IconButton>
                     }
                     {rolledValue && <Typography color="secondary" style={{ marginLeft: "1vw" }} variant="subtitle2">{rolledValue.hit} to hit, {rolledValue.damage} </Typography>}

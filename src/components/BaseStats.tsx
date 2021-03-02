@@ -3,7 +3,8 @@ import React from "react";
 import { BaseStatsProps } from "../services/types";
 import { Subtitle } from "../utilities/TypographyComponent";
 import { IconButton } from "@material-ui/core";
-import CasinoIcon from '@material-ui/icons/Casino';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 import { Divider } from "./Divider";
 
 export const BaseStats = ({ AC, HP, hitDice, speed, constitutionModifier }: BaseStatsProps) => {
@@ -26,7 +27,7 @@ export const BaseStats = ({ AC, HP, hitDice, speed, constitutionModifier }: Base
                 <Subtitle label={< >Hit Points</ >} />
                 <Typography style={{ marginLeft: "1vw" }} variant="subtitle2">{HP} {hitDice}</Typography>
                 <IconButton color="secondary" aria-label="roll-hit-dices" onClick={rollHitDice}>
-                    <CasinoIcon />
+                    <FontAwesomeIcon icon={faDiceD20} />
                 </IconButton>
                 <Typography color="secondary" style={{ marginLeft: "1vw" }} variant="subtitle2"> {randomHP}</Typography>
             </div>
