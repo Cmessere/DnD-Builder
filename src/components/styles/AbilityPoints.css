@@ -17,17 +17,3 @@
     text-align: center;
 }
 
-.Ability-Points-div{
-    margin: 5px;
-    width: 80px;
-    height: 80px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #cb2d3e;
-    background-color: rgb(255, 255, 255);
-    color: #cb2d3e;
-    border-bottom-left-radius: 150% 75%;
-    border-bottom-right-radius: 150% 75%;
-    border-top-left-radius: 100% 15%;
-    border-top-right-radius: 100% 15%;
-}

@@ -1,12 +1,13 @@
 .string-div{
     display: flex;
     align-items: baseline;
+    flex-wrap: wrap;
 }
 
 .two-column-div{
     display: flex;
     flex-direction: row;
-    width: 60%;
+    width: 100%;
 }
 
 .Monster-Sheet-div{
@@ -37,6 +38,7 @@
 .Monster-Sheet-page{
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
 
 .Monster-Sheet-title{
@@ -44,11 +46,13 @@
 }
 
 .Monster-Sheet-skills{
-    overflow-y: auto
+    overflow-y: auto;
+    flex-grow: 3;
+    margin-left: 2vw;
 }
 .Monster-Sheet-stats{
-    width: 100%;
-
+    flex-grow: 2;
+    max-width: 50vw;
 }
 
 .additional-stat-div{
