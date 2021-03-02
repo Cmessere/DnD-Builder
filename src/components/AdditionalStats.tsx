@@ -12,7 +12,7 @@ export const AdditionalStats = ({ senses, languages, cr, xp }: AdditionalStatsPr
                 {prettySenses.length > 0 && <StringRenderer label={"Senses: "} values={prettySenses} />}
             </div>
             <div className="string-div">
-                <p><b>Languages: &nbsp;</b></p><p>{languages}</p>
+                {languages.length > 0 && <><p><b>Languages: &nbsp;</b></p><p>{languages}</p></>}
             </div>
             <div className="two-column-div">
                 <div>
