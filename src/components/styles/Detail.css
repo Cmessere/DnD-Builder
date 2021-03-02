@@ -6,8 +6,7 @@
 .two-column-div{
     display: flex;
     flex-direction: row;
-    width: 40%;
-    justify-content: space-between;
+    width: 60%;
 }
 
 .Monster-Sheet-div{
@@ -15,34 +14,11 @@
     align-items: center;
 }
 
-.proficiencies-saves-div{
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-
 .Monster-Sheet-BaseStats{
     margin-top: 1vh;
 }
 
-.Ability-Points-div{
-    margin: 5px;
-    width: 80px;
-    height: 80px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #cb2d3e;
-    background-color: rgb(255, 255, 255);
-    color: #cb2d3e;
-    border-bottom-left-radius: 150% 75%;
-    border-bottom-right-radius: 150% 75%;
-    border-top-left-radius: 100% 15%;
-    border-top-right-radius: 100% 15%;
-}
 
-.Abilities-div{
-    margin: 10px;
-}
 .Action-div{
     margin-top: 2vh;
 }
@@ -58,15 +34,6 @@
     align-items: center;
 }
 
-.Monster-Sheet-panel{
-    padding: 15px;
-    margin-left: 5px;
-    margin-right: 5px;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
 .Monster-Sheet-page{
     display: flex;
     flex-direction: column;
@@ -74,4 +41,18 @@
 
 .Monster-Sheet-title{
     display: flex;
+}
+
+.Monster-Sheet-skills{
+    overflow-y: auto
+}
+.Monster-Sheet-stats{
+    width: 100%;
+
+}
+
+.additional-stat-div{
+    display: flex;
+    margin-right: 3vw;
+    align-items: baseline;
 }

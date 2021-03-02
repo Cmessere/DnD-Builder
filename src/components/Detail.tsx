@@ -34,11 +34,10 @@ export const Detail = () => {
         const modifier = Math.floor((monsterData.constitution - 10)/2)
         return(
             <div className="Monster-Sheet-page">
+
                 <div className="Monster-Sheet-title">
+                <div className="Monster-Sheet-stats">
                     <MonsterSheetHeader name={monsterData.name} size={monsterData.size} type={monsterData.type} subtype={monsterData.subtype} alignment={monsterData.alignment} />
-                </div>
-                <div className="Monster-Sheet-title">
-                <div className="Monster-Sheet-panel">
                     <BaseStats AC={monsterData.armor_class} HP={monsterData.hit_points} hitDice={monsterData.hit_dice} speed={monsterData.speed} constitutionModifier={modifier}/>
                     <AbilityPoints str={monsterData.strength} dex={monsterData.dexterity} con={monsterData.constitution} int={monsterData.intelligence} wis={monsterData.wisdom} cha={monsterData.charisma}/>
                     <ProficienciesComponent proficiencies={monsterData.proficiencies} />
@@ -46,7 +45,7 @@ export const Detail = () => {
                     <AdditionalStats senses={monsterData.senses} languages={monsterData.languages} cr={monsterData.challenge_rating} xp={monsterData.xp} />
                     {monsterData.special_abilities && <SpecialAbilitiesComponent abilities={monsterData.special_abilities} />}
                 </div>
-                <div className="Monster-Sheet-panel">
+                <div className="Monster-Sheet-skills">
                     {monsterData.actions && <ActionsComponent actions={monsterData.actions} />}
                     {monsterData.legendary_actions && <LegendaryActionsComponent legendaryActions={monsterData.legendary_actions} />}
                 </div>

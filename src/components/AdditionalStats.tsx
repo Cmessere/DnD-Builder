@@ -17,10 +17,10 @@ export const AdditionalStats = ({ senses, languages, cr, xp }: AdditionalStatsPr
                 {languages.length > 0 && <><Subtitle label={<>Languages &nbsp;</>}/> <Typography variant="subtitle2">{languages}</Typography></>}
             </div>
             <div className="two-column-div">
-                <div className="string-div">
+                <div className="additional-stat-div">
                     <Subtitle label={<>Challenge &nbsp;</>}/><Typography variant="subtitle2">{cr} ({xp} XP) </Typography>
                 </div>
-                <div className="string-div">
+                <div className="additional-stat-div">
                     <Subtitle label={<>Proficiency Bonus &nbsp;</>}/><Typography variant="subtitle2">+{proficiencyBonus}</Typography>
                 </div>
             </div>

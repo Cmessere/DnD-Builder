@@ -1,3 +1,8 @@
-.ProficienciesComponent-div{
+.proficiencies-saves-div{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+.proficiencies-div{
     display: flex;
 }

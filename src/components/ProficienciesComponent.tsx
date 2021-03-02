@@ -8,8 +8,12 @@ export const ProficienciesComponent = ({ proficiencies }: ProficienciesComponent
 
     return (
         <div className="proficiencies-saves-div">
-            {savingThrows.length > 0 && <StringRenderer label={"Saving Throws: "} values={savingThrows} />}
-            {skills.length > 0 && <StringRenderer label={"Skills: "} values={skills} />}
+            <div className="proficiencies-div">
+                {savingThrows.length > 0 && <StringRenderer label={"Saving Throws: "} values={savingThrows} />}
+            </div>
+            <div className="proficiencies-div">
+                {skills.length > 0 && <StringRenderer label={"Skills: "} values={skills} />}
+            </div>
         </div>
     );
 };
