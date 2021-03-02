@@ -41,6 +41,7 @@ const RenderActionComponent = ({ action }: any) => {
                         </IconButton>
                     }
                     {rolledValue && <Typography color="secondary" style={{ marginLeft: "1vw" }} variant="subtitle2">{rolledValue.hit} to hit, {rolledValue.damage} </Typography>}
+                    {rolledValue && rolledValue.critical && <Typography color="secondary" style={{ marginLeft: "1vw" }} variant="subtitle2">CRITICAL HIT!</Typography>}
                 </div>
             </div>
             <div>
@@ -51,12 +52,21 @@ const RenderActionComponent = ({ action }: any) => {
 };
 
 const rollAction = (action: Action, setRolledValue: React.Dispatch<React.SetStateAction<DamageRoll>>) => {
-    const hitRoll = Math.floor(Math.random() * 20) + action.attack_bonus! + 1
+    const d20Roll = Math.floor(Math.random() * 20) + 1
+
+    let critical = false
+    if(d20Roll === 20)
+        critical = true
+
+    const hitRoll = d20Roll  + action.attack_bonus!
     const damageValues = action.damage![0]
     const [times, dice] = damageValues.damage_dice.split('d')
     const [parsedDice, modifier] = getModifierValue(dice)
-    const damageRoll = rollDamage(parseInt(times), parsedDice, modifier).toString() + " " + damageValues.damage_type.name
-    setRolledValue({ hit: hitRoll, damage: damageRoll })
+    const damageRoll = rollDamage(parseInt(times), parsedDice, modifier, critical).toString() + " " + damageValues.damage_type.name
+    
+
+
+    setRolledValue({ hit: hitRoll, damage: damageRoll, critical: critical})
 }
 
 const getModifierValue = (value: string) => {
@@ -76,14 +86,20 @@ const getModifierValue = (value: string) => {
     return [dice, modifier]
 }
 
-const rollDamage = (times: number, dice: any, bonus: any): number => {
-    let count
-    bonus
-        ? count = parseInt(bonus)
-        : count = 0
+const rollDamage = (times: number, dice: any, bonus: any, critical:boolean): number => {
+    let count = 0
 
     for (let i = 0; i < times; i++) {
         count += Math.floor(Math.random() * dice) + 1
     }
+
+    if(critical){
+        count *= 2
+    }
+
+    if(bonus){
+        count += parseInt(bonus)
+    }
+
     return count
 }

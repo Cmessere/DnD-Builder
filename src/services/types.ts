@@ -22,7 +22,8 @@ export type SpecialAbilitiesProps = {
 
 export type DamageRoll = {
     hit: number,
-    damage: string
+    damage: string,
+    critical: boolean
 }
 
 type Usage = {
