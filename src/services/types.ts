@@ -23,7 +23,11 @@ export type SpecialAbilitiesProps = {
 export type DamageRoll = {
     hit: number,
     damage: string,
-    critical: boolean
+}
+
+export type Critical = {
+    hasOccured: boolean,
+    successOrMiss: boolean
 }
 
 type Usage = {

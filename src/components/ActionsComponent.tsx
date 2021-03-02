@@ -1,7 +1,7 @@
 import React from "react";
 import { IconButton } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import { Action, ActionsComponentProps, DamageRoll, LegendaryActionsComponentProps } from "../services/types";
+import { Action, ActionsComponentProps, Critical, DamageRoll, LegendaryActionsComponentProps } from "../services/types";
 import { Title } from "../utilities/TypographyComponent";
 import CasinoIcon from '@material-ui/icons/Casino';
 
@@ -31,7 +31,8 @@ export const LegendaryActionsComponent = ({ legendaryActions }: LegendaryActions
 
 const RenderActionComponent = ({ action }: any) => {
     const [rolledValue, setRolledValue] = React.useState(undefined as unknown as DamageRoll)
-
+    const [criticalType, setCriticalType] = React.useState({hasOccured:false, successOrMiss:false} as Critical)
+    const criticalLabel = generateCritical(criticalType.successOrMiss)
     return (
         <div className="Action-string-div">
             <div className="Action-description-div">
@@ -40,12 +41,12 @@ const RenderActionComponent = ({ action }: any) => {
                 </div>
                 <div className="Action-inner-div">
                     {action.attack_bonus !== undefined &&
-                        <IconButton color="secondary" aria-label="roll-hit-dices" onClick={() => rollAction(action, setRolledValue)}>
+                        <IconButton color="secondary" aria-label="roll-hit-dices" onClick={() => rollAction(action, setRolledValue, setCriticalType)}>
                             <CasinoIcon />
                         </IconButton>
                     }
                     {rolledValue && <Typography color="secondary" style={{ marginLeft: "1vw" }} variant="subtitle2">{rolledValue.hit} to hit, {rolledValue.damage} </Typography>}
-                    {rolledValue && rolledValue.critical && <Typography color="secondary" style={{ marginLeft: "1vw" }} variant="subtitle2">CRITICAL HIT!</Typography>}
+                    {criticalType && criticalType.hasOccured && <Typography color="secondary" style={{ marginLeft: "1vw" }} variant="subtitle2">{criticalLabel}</Typography>}
                 </div>
             </div>
             <div>
@@ -55,22 +56,37 @@ const RenderActionComponent = ({ action }: any) => {
     );
 };
 
-const rollAction = (action: Action, setRolledValue: React.Dispatch<React.SetStateAction<DamageRoll>>) => {
+const generateCritical = (value:Boolean) =>{
+    if(value === true)
+        return "CRITICAL HIT!"
+    else
+        return "CRITICAL MISS!"
+}
+
+const rollAction = (action: Action, setRolledValue: React.Dispatch<React.SetStateAction<DamageRoll>>, setCriticalType: React.Dispatch<React.SetStateAction<any>>) => {
     const d20Roll = Math.floor(Math.random() * 20) + 1
 
-    let critical = false
-    if(d20Roll === 20)
-        critical = true
+    let criticalFlag = false
+
+    if(d20Roll === 20 ){
+        criticalFlag = true
+        setCriticalType({hasOccured:true, successOrMiss:true})
+    }
+    else if(d20Roll === 1){
+        criticalFlag = true
+        setCriticalType({hasOccured:true, successOrMiss:false})
+    }
+    else{
+        setCriticalType({hasOccured:false, successOrMiss:false})
+    }
 
     const hitRoll = d20Roll  + action.attack_bonus!
     const damageValues = action.damage![0]
     const [times, dice] = damageValues.damage_dice.split('d')
     const [parsedDice, modifier] = getModifierValue(dice)
-    const damageRoll = rollDamage(parseInt(times), parsedDice, modifier, critical).toString() + " " + damageValues.damage_type.name
+    const damageRoll = rollDamage(parseInt(times), parsedDice, modifier, criticalFlag).toString() + " " + damageValues.damage_type.name
     
-
-
-    setRolledValue({ hit: hitRoll, damage: damageRoll, critical: critical})
+    setRolledValue({ hit: hitRoll, damage: damageRoll})
 }
 
 const getModifierValue = (value: string) => {
@@ -97,13 +113,11 @@ const rollDamage = (times: number, dice: any, bonus: any, critical:boolean): num
         count += Math.floor(Math.random() * dice) + 1
     }
 
-    if(critical){
+    if(critical)
         count *= 2
-    }
 
-    if(bonus){
+    if(bonus)
         count += parseInt(bonus)
-    }
 
     return count
 }
