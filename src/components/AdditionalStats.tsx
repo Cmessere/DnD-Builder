@@ -1,5 +1,7 @@
 import React from "react";
+import { Typography } from "@material-ui/core";
 import { AdditionalStatsProps } from "../services/types";
+import { Subtitle } from "../utilities/Subtitle";
 import { StringRenderer } from "./StringRenderer";
 import "./styles/Detail.css"
 
@@ -12,14 +14,14 @@ export const AdditionalStats = ({ senses, languages, cr, xp }: AdditionalStatsPr
                 {prettySenses.length > 0 && <StringRenderer label={"Senses: "} values={prettySenses} />}
             </div>
             <div className="string-div">
-                {languages.length > 0 && <><p><b>Languages: &nbsp;</b></p><p>{languages}</p></>}
+                {languages.length > 0 && <><Subtitle label={<>Languages &nbsp;</>}/> <Typography variant="subtitle2">{languages}</Typography></>}
             </div>
             <div className="two-column-div">
-                <div>
-                    <p><b>Challenge </b>{cr} ({xp} XP) </p>
+                <div className="string-div">
+                    <Subtitle label={<>Challenge &nbsp;</>}/><Typography variant="subtitle2">{cr} ({xp} XP) </Typography>
                 </div>
-                <div>
-                    <p><b>Proficiency Bonus </b> +{proficiencyBonus}</p>
+                <div className="string-div">
+                    <Subtitle label={<>Proficiency Bonus &nbsp;</>}/><Typography variant="subtitle2">+{proficiencyBonus}</Typography>
                 </div>
             </div>
         </div>

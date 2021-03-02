@@ -1,7 +1,6 @@
 .string-div{
     display: flex;
     align-items: baseline;
-
 }
 
 .two-column-div{
@@ -14,9 +13,8 @@
 .Monster-Sheet-div{
     display: flex;
     align-items: center;
-    margin-top: -0.5vh;
-    margin-bottom: -0.5vh;
 }
+
 .proficiencies-saves-div{
     display: flex;
     align-items: center;
