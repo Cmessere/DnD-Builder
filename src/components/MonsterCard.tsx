@@ -1,7 +1,7 @@
 import Typography from '@material-ui/core/Typography';
 import { Card, CardActionArea, makeStyles } from '@material-ui/core';
 import React from 'react';
-import { MonsterCardProps } from '../services/types';
+import { Monster, MonsterCardProps } from '../services/types';
 import { useHistory } from 'react-router-dom';
 import { CardActions } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -55,7 +55,7 @@ export default function MonsterCard({monster}: MonsterCardProps) {
           </Typography>
       </CardActionArea>
       <CardActions className={classes.button}>
-        <IconButton style={{color:"white"}} aria-label="Add-Monster" onClick={() => console.log(monster)}>
+        <IconButton style={{color:"white"}} aria-label="Add-Monster" onClick={() => navigateToEncounter(monster, history)}>
           <FontAwesomeIcon icon={faPlusCircle} />
         </IconButton>
       </CardActions>
@@ -65,4 +65,7 @@ export default function MonsterCard({monster}: MonsterCardProps) {
 
 const navigateToDetail = (url:string, history:any) => {
     history.push("monsters/detail/"+url)
+}
+const navigateToEncounter = (monster:Monster, history:any) => {
+    history.push("encounter")
 }

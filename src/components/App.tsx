@@ -12,6 +12,7 @@ function App() {
             <Switch>
                 <Route exact path="/"><Home /></Route>
                 <Route path="/monsters/detail/:id"><Detail /></Route>
+                <Route path="/encounter"><Encounter /></Route>
             </Switch>
             </ThemeProvider>
         </div>
@@ -19,3 +20,9 @@ function App() {
 }
 
 export default App;
+
+const Encounter = () =>{
+    return(
+        <div>Encounter builder</div>
+    )
+}
