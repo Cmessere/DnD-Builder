@@ -57,3 +57,21 @@
     display: flex;
     align-items: center;
 }
+
+.Monster-Sheet-panel{
+    padding: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.Monster-Sheet-page{
+    display: flex;
+    flex-direction: column;
+}
+
+.Monster-Sheet-title{
+    display: flex;
+}
