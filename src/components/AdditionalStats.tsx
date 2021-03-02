@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import { AdditionalStatsProps } from "../services/types";
-import { Subtitle } from "../utilities/Subtitle";
+import { Subtitle } from "../utilities/TypographyComponent";
 import { StringRenderer } from "./StringRenderer";
 import "./styles/Detail.css"
 

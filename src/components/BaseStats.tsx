@@ -1,7 +1,7 @@
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { BaseStatsProps } from "../services/types";
-import { Subtitle } from "../utilities/Subtitle";
+import { Subtitle } from "../utilities/TypographyComponent";
 import { IconButton } from "@material-ui/core";
 import CasinoIcon from '@material-ui/icons/Casino';
 

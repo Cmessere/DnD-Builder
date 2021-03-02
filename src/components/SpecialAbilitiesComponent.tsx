@@ -1,5 +1,7 @@
 import React from "react";
+import { Typography } from "@material-ui/core";
 import { SpecialAbilities, SpecialAbilitiesProps } from "../services/types";
+import { Title } from "../utilities/TypographyComponent";
 
 export const SpecialAbilitiesComponent = ({ abilities }: SpecialAbilitiesProps) => {
     return (
@@ -11,8 +13,8 @@ export const SpecialAbilitiesComponent = ({ abilities }: SpecialAbilitiesProps) 
 const RenderSpecialAbility = ({ name, desc, usage }: SpecialAbilities) => {
     return (
         <div>
-            {usage && <p><b>{name} ({usage.times}/{usage.type})</b>: {desc}</p>}
-            {!usage && <p><b>{name}</b>: {desc}</p>}
+            {usage && <><Title label={<>{name} ({usage.times}/{usage.type}):</>}/><Typography variant="subtitle1">{desc}</Typography></>}
+            {!usage && <><Title label={<>{name}:</>} /><Typography variant="subtitle1">{desc}</Typography></>}
         </div>
     );
 };
