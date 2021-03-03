@@ -67,5 +67,5 @@ const navigateToDetail = (url:string, history:any) => {
     history.push("monsters/detail/"+url)
 }
 const navigateToEncounter = (monster:Monster, history:any) => {
-    history.push("encounter")
+    history.push("encounter/"+ monster.index)
 }
